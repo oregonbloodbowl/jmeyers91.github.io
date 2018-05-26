@@ -1,0 +1,6 @@
+#!/bin/bash
+
+yarn run build
+git add *
+git commit -am "🚀"
+git push origin master
