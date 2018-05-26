@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Banner from './components/Banner';
 import YouTube from './components/YouTube';
 import videos from './videos';
@@ -15,6 +15,7 @@ class App extends Component {
   render() {
     return (
       <Root>
+        <Bird/>
         <Hero/>
         <Fire/>
         <Content>
@@ -53,6 +54,7 @@ const Root = styled.div`
   background: url('${require('./assets/bg.gif')}') repeat;
   font-family: "Comic Sans MS", cursive, sans-serif;
   cursor: url('${require('./assets/cursor.png')}'), auto !important;
+  overflow-x: hidden;
 `;
 
 const Content = styled.div`
@@ -107,3 +109,21 @@ const Baby = styled.img.attrs({src: require('./assets/dancing-baby.gif')})`
   height: 50px;
 `;
 
+const birdAnimation = keyframes`
+  0% {
+    right: -20%;
+  }
+  100% {
+    right: 150%;
+  }
+`;
+
+const Bird = styled.img.attrs({src: require('./assets/bird.gif')})`
+  position: absolute;
+  right: -20%;
+  top: 0;
+  height: 50px;
+  z-index: 10;
+  animation: 10s ${birdAnimation} ease;
+  animation-iteration-count: infinite;
+`;
