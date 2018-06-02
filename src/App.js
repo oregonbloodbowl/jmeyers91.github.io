@@ -6,6 +6,8 @@ import videos from './videos';
 import Hero from './components/Hero';
 import Ham from './components/Ham';
 
+const reversedVideos = videos.slice().reverse();
+
 class App extends Component {
   startMusic = el => {
     el.volume = 0.05;
@@ -26,7 +28,7 @@ class App extends Component {
             </audio>
             <h1>Season 4</h1>
             <VideoList>
-              {videos.map(video => 
+              {reversedVideos.map(video => 
                 <VideoListItem>
                   <h2>Week {video.week}</h2>
                   <YouTube videoId={video.videoId}/>
